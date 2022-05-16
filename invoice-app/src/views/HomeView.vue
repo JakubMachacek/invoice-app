@@ -126,9 +126,12 @@ export default class HomeView extends Vue {
     // values for properties but this function won't execute if they are null anyways
     const item: ItemType = {
       checked: false,
+      // no-null-assertion is a bad practice but I explained above (+ time limit)
+      /* eslint-disable */
       name: this.productName!,
       price: this.productPrice!,
       quantity: this.productQuantity!,
+      /* eslint-enable */
       idHash: uuidv4(),
     };
     this.$store.commit("addInvoiceItem", item);
